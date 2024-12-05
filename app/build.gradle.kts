@@ -26,6 +26,7 @@ android {
             )
         }
     }
+
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
@@ -40,16 +41,25 @@ android {
 }
 
 dependencies {
-
+    // AndroidX dependencies
     implementation(libs.androidx.core.ktx)
-    implementation ("androidx.viewpager2:viewpager2:1.0.")
-    implementation ("androidx.viewpager2:viewpager2:1.0.0")
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
     implementation(libs.androidx.swiperefreshlayout)
     implementation(libs.androidx.gridlayout)
+
+    // ViewPager2
+    implementation("androidx.viewpager2:viewpager2:1.0.0")
+
+    // Kotlin Coroutines
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
+
+    // Lifecycle Runtime
+    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.6.2") // Sesuaikan dengan versi terbaru jika perlu
+
+    // Testing
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
