@@ -5,191 +5,248 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FFFFFF"
     tools:context=".MainActivity">
 
-    <androidx.viewpager2.widget.ViewPager2
-        android:id="@+id/imageSlider"
+    <!-- Center-aligned ViewPager with card style -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/sliderCard"
         android:layout_width="match_parent"
         android:layout_height="200dp"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="16dp"/>
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="16dp"
+        app:cardCornerRadius="12dp"
+        app:cardElevation="4dp">
 
-    <!-- Gunakan GridLayout untuk menempatkan 6 tombol logo -->
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/imageSlider"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </androidx.cardview.widget.CardView>
+
+    <!-- Grid of buttons with rounded corners -->
     <GridLayout
         android:id="@+id/gridLayout"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:rowCount="2"
+        android:layout_below="@id/sliderCard"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="16dp"
         android:columnCount="3"
-        android:layout_gravity="center"
-        android:padding="16dp">
+        android:rowCount="2">
 
-        <!-- Tombol logo 1 dengan teks -->
-        <LinearLayout
-            android:layout_width="wrap_content"
+        <!-- Button 1 -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:gravity="center">
+            android:layout_columnWeight="1"
+            android:layout_margin="8dp"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="2dp">
 
-            <ImageButton
-                android:id="@+id/button1"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_margin="8dp"
-                android:src="@drawable/img"
-                android:scaleType="centerInside"
-                android:background="@null"
-                android:contentDescription="@string/logo1" />
-
-            <TextView
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Lulusan Baru"
-                android:gravity="center"/>
-        </LinearLayout>
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="8dp">
 
-        <!-- Tombol logo 2 dengan teks -->
-        <LinearLayout
-            android:layout_width="wrap_content"
+                <ImageButton
+                    android:id="@+id/button1"
+                    android:layout_width="64dp"
+                    android:layout_height="64dp"
+                    android:background="@null"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/img" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="Lulusan Baru"
+                    android:textSize="12sp" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- Repeat similar CardView structure for buttons 2-6 -->
+        <!-- Button 2 -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:gravity="center">
+            android:layout_columnWeight="1"
+            android:layout_margin="8dp"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="2dp">
 
-            <ImageButton
-                android:id="@+id/button2"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_margin="8dp"
-                android:src="@drawable/img2"
-                android:scaleType="centerInside"
-                android:background="@null"
-                android:contentDescription="@string/logo2" />
-
-            <TextView
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Lulusan Vokasi"
-                android:gravity="center"/>
-        </LinearLayout>
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="8dp">
 
-        <!-- Tombol logo 3 dengan teks -->
-        <LinearLayout
-            android:layout_width="wrap_content"
+                <ImageButton
+                    android:id="@+id/button2"
+                    android:layout_width="64dp"
+                    android:layout_height="64dp"
+                    android:background="@null"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/img2" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="Lulusan Vokasi"
+                    android:textSize="12sp" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- Button 3 -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:gravity="center">
+            android:layout_columnWeight="1"
+            android:layout_margin="8dp"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="2dp">
 
-            <ImageButton
-                android:id="@+id/button3"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_margin="8dp"
-                android:src="@drawable/img3"
-                android:scaleType="centerInside"
-                android:background="@null"
-                android:contentDescription="@string/logo3" />
-
-            <TextView
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Mahasiswa"
-                android:gravity="center"/>
-        </LinearLayout>
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="8dp">
 
-        <!-- Tombol logo 4 dengan teks -->
-        <LinearLayout
-            android:layout_width="wrap_content"
+                <ImageButton
+                    android:id="@+id/button3"
+                    android:layout_width="64dp"
+                    android:layout_height="64dp"
+                    android:background="@null"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/img3" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="Mahasiswa"
+                    android:textSize="12sp" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- Button 4 -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:gravity="center">
+            android:layout_columnWeight="1"
+            android:layout_margin="8dp"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="2dp">
 
-            <ImageButton
-                android:id="@+id/button4"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_margin="8dp"
-                android:src="@drawable/img4"
-                android:scaleType="centerInside"
-                android:background="@null"
-                android:contentDescription="@string/logo4" />
-
-            <TextView
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Pekerja Terampil"
-                android:gravity="center"/>
-        </LinearLayout>
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="8dp">
 
-        <!-- Tombol logo 5 dengan teks -->
-        <LinearLayout
-            android:layout_width="wrap_content"
+                <ImageButton
+                    android:id="@+id/button4"
+                    android:layout_width="64dp"
+                    android:layout_height="64dp"
+                    android:background="@null"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/img4" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="Pekerja"
+                    android:textSize="12sp" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- Button 5 -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:gravity="center">
+            android:layout_columnWeight="1"
+            android:layout_margin="8dp"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="2dp">
 
-            <ImageButton
-                android:id="@+id/button5"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_margin="8dp"
-                android:src="@drawable/img5"
-                android:scaleType="centerInside"
-                android:background="@null"
-                android:contentDescription="@string/logo5" />
-
-            <TextView
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Wirausaha"
-                android:gravity="center"/>
-        </LinearLayout>
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="8dp">
 
-        <!-- Tombol logo 6 dengan teks -->
-        <LinearLayout
-            android:layout_width="wrap_content"
+                <ImageButton
+                    android:id="@+id/button5"
+                    android:layout_width="64dp"
+                    android:layout_height="64dp"
+                    android:background="@null"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/img5" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="Wirausaha"
+                    android:textSize="12sp" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- Button 6 -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:gravity="center">
+            android:layout_columnWeight="1"
+            android:layout_margin="8dp"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="2dp">
 
-            <ImageButton
-                android:id="@+id/button6"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_margin="8dp"
-                android:src="@drawable/img6"
-                android:scaleType="centerInside"
-                android:background="@null"
-                android:contentDescription="@string/logo6" />
-
-            <TextView
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Pelatihan Tematik"
-                android:gravity="center"/>
-        </LinearLayout>
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="8dp">
+
+                <ImageButton
+                    android:id="@+id/button6"
+                    android:layout_width="64dp"
+                    android:layout_height="64dp"
+                    android:background="@null"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/img6" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="Pelatihan"
+                    android:textSize="12sp" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
     </GridLayout>
 
-    <FrameLayout
-        android:id="@+id/fragment_container"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toTopOf="@+id/bottom_navigation"
-        app:layout_constraintTop_toTopOf="parent" />
-
+    <!-- Bottom Navigation with 5 items -->
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_navigation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_gravity="bottom"
-        android:layout_marginBottom="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:menu="@menu/bottom_navigation_menu"
+        android:background="@color/nav_color"
         app:itemIconTint="@color/white"
         app:itemTextColor="@color/white"
-        android:background="@color/nav_color"/>
+        app:menu="@menu/bottom_navigation_menu" />
 
 </RelativeLayout>
-
-
