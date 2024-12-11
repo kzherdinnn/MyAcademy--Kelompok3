@@ -42,6 +42,7 @@ android {
 
 dependencies {
     // AndroidX dependencies
+    implementation("androidx.coordinatorlayout:coordinatorlayout:1.1.0")
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
@@ -63,4 +64,6 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+
+    implementation ("com.pierfrancescosoffritti.androidyoutubeplayer:core:11.1.0")
 }

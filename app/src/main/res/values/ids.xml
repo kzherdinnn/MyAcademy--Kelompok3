@@ -3,4 +3,8 @@
     <item name="webView" type="id" />
     <item name="button" type="id" />
     <item name="swipeRefreshLayout" type="id" />
+    <item name="podcastImage1" type="id" />
+    <item name="podcastImage2" type="id" />
+    <item name="podcastImage3" type="id" />
+
 </resources>

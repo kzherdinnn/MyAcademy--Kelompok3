@@ -1,20 +1,18 @@
 package lat.pam.myacademy
 
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import android.widget.ImageButton
 import androidx.appcompat.app.AppCompatActivity
-import androidx.gridlayout.widget.GridLayout
+import androidx.appcompat.widget.AppCompatImageView
 import androidx.viewpager2.widget.ViewPager2
-import com.google.android.material.button.MaterialButton
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var toggleButton: MaterialButton
-    private lateinit var gridLayout: GridLayout
     private lateinit var imageSlider: ViewPager2
     private lateinit var sliderHandler: Handler
 
@@ -22,17 +20,13 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        // Hubungkan tombol ke WebView
-        setupWebViewButtons()
-
         // Inisialisasi ViewPager2 untuk Image Slider
         imageSlider = findViewById(R.id.imageSlider)
 
         // Gambar-gambar yang ingin ditampilkan di slider
         val images = listOf(
             R.drawable.image1,
-            R.drawable.image2,
-            R.drawable.image3
+            R.drawable.image2
         )
 
         // Set adapter untuk ViewPager2
@@ -40,7 +34,7 @@ class MainActivity : AppCompatActivity() {
 
         // Auto-slide setup
         sliderHandler = Handler(Looper.getMainLooper())
-        setupAutoSlider(images.size)
+        setupAutoSlider()
 
         // Pengguna dapat menggeser manual, reset auto-slide saat swipe manual
         imageSlider.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
@@ -54,9 +48,14 @@ class MainActivity : AppCompatActivity() {
 
         // Setup BottomNavigationView
         setupBottomNavigation()
+
+        // Call setup functions after setContentView
+        setupWebViewButtons()
+        setupPodcastCards()
     }
 
-    private fun setupAutoSlider(totalImages: Int) {
+    // Auto-slide setup
+    private fun setupAutoSlider() {
         sliderHandler.postDelayed(sliderRunnable, 3000)
     }
 
@@ -93,11 +92,11 @@ class MainActivity : AppCompatActivity() {
         }
 
         findViewById<ImageButton>(R.id.button3).setOnClickListener {
-            openWebView("https://www.youtube.com/watch?v=05QAqhiP3RQ")
+            openWebView("https://informatika.digital/")
         }
 
         findViewById<ImageButton>(R.id.button4).setOnClickListener {
-            openWebView("https://www.remove.bg/id")
+            openWebView("https://gemini.google.com/")
         }
 
         findViewById<ImageButton>(R.id.button5).setOnClickListener {
@@ -105,7 +104,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         findViewById<ImageButton>(R.id.button6).setOnClickListener {
-            openWebView("https://www.instagram.com/")
+            openWebView("https://drive.google.com/drive/")
         }
     }
 
@@ -120,26 +119,39 @@ class MainActivity : AppCompatActivity() {
     private fun setupBottomNavigation() {
         val bottomNavigationView = findViewById<BottomNavigationView>(R.id.bottom_navigation)
 
-        bottomNavigationView.setOnNavigationItemSelectedListener { item ->
+        bottomNavigationView.setOnItemSelectedListener { item ->
             when (item.itemId) {
-                R.id.nav_home -> {
-                    // Tidak perlu melakukan apa-apa, karena sudah di MainActivity
-                    true
-                }
+                R.id.nav_home -> true
                 R.id.nav_search -> {
                     // Navigasi ke NotesActivity
                     val intent = Intent(this, NotesActivity::class.java)
                     startActivity(intent)
                     true
                 }
-                R.id.nav_profile -> {
-                    // Navigasi ke ProfileActivity (jika ada)
-                    // val intent = Intent(this, ProfileActivity::class.java)
-                    // startActivity(intent)
-                    true
-                }
                 else -> false
             }
         }
     }
+
+    // Fungsi untuk menghubungkan setiap card podcast ke YouTube
+    private fun setupPodcastCards() {
+        findViewById<AppCompatImageView>(R.id.podcastImage1).setOnClickListener {
+            openYouTubeVideo("https://youtu.be/6ldCj1W7DMY?si=qZUciNW80ohWlugb")
+        }
+
+        findViewById<AppCompatImageView>(R.id.podcastImage2).setOnClickListener {
+            openYouTubeVideo("https://youtu.be/Z90ylQ6emTA?si=kwG6Kg4I8PDY21Hc")
+        }
+
+        findViewById<AppCompatImageView>(R.id.podcastImage3).setOnClickListener {
+            openYouTubeVideo("https://youtu.be/OmH2gbXfCUk?si=5nb0oPa22xegDzZT")
+        }
+    }
+
+    // Fungsi untuk membuka video YouTube
+    private fun openYouTubeVideo(url: String) {
+        val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
+        startActivity(intent)
+    }
+
 }
